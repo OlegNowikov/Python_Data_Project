@@ -76,3 +76,21 @@ plt.show()
 #### Insights
 - The top graph shows specialized technical skills like 'mongo', 'aws', 'hadoop' are associated with higher salaries, suggesting that advanced technical proficiency can increase earning potential.
 - The bottom graph shows that foundational skills like 'SQL', 'Power Bi', 'Excel', 'Python' are the most In-Demand, even though they may not offer the highest salaries. This demonstrates tre importance of core skills in data analysis roles.
+
+## 4. What is the most optimal skill to learn for Data Analysts?
+
+#### Visualize data
+```Python
+from matplotlib.ticker import PercentFormatter
+from adjustText import adjust_text
+
+sns.scatterplot(
+    data=df_plot,
+    x='skill_prc',
+    y = 'salary_median',
+    hue='technology'         
+                )
+plt.show()
+```
+#### Insights
+- programming and analyst_tools skills are optimal for Data Analyst job

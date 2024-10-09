@@ -21,7 +21,7 @@ plt.show()
 ![Visualization of Top Skills for Data roles](3_Project\Images\bp_skill_demand_all_roles.png)
 
 ### Insights
-Python and SQL are a versatile skills, highly demanded across all three roles, so I would recommend to start learning it :)
+-Python and SQL are a versatile skills, highly demanded across all three roles, so I would recommend to start learning it :)
 
 ## 2. How are in-demand skills trending for Data Analysts in Baltics and Poland?
 ```python
@@ -45,3 +45,34 @@ plt.show()
 
 - SQL remains the most consistently demanded skill throughout the year and shows a gradual increase in demand.
 - Excel and Power Bi show relatively stable demand throughout the year, shows upward trend towards the year's end.
+
+## 3. How well do jobs and skills pay for Data Analysts?
+### Salary Analysis for Data jobs
+```Python
+sns.boxplot(data=df_PLBAL_top6, x='salary_year_avg', y='job_title_short', order=job_order)
+ticks_x = plt.FuncFormatter(lambda x, position: f'€{int(x/1100)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+
+```
+![Salary Distributions of Data Jobs in the Baltics and Poland](3_Project\Images\Salary_by_job.png)*Box plot visualizing the salary distributions for the top 6 data job titles.*
+
+#### Insights
+- Top 3 (Senior Data Scientis, Data Engineer, Data Scientist) jobs have almost the same interquartile range for salary.
+- For top 3 jobs salary is more than 50% bigger than Data Analyst.
+
+### Highest Paid & Most Demanded Skills for Data Analysts
+```Python
+
+fig, ax = plt.subplots(2 , 1)
+# Top 10 Highest Paid Skills for Data Analysts
+sns.barplot(data=df_DA_top_pay, x='median', y=df_DA_top_pay.index, ax=ax[0], hue='median', palette='dark:b_r', legend=False)
+# Top 10 Most In-Demand Skills for Data Analysts
+sns.barplot(data=df_DA_top_skills, x='median', y=df_DA_top_skills.index, ax=ax[1], hue='median', palette='light:b', legend=False)
+plt.show()
+
+
+```
+#### Insights
+- The top graph shows specialized technical skills like 'mongo', 'aws', 'hadoop' are associated with higher salaries, suggesting that advanced technical proficiency can increase earning potential.
+- The bottom graph shows that foundational skills like 'SQL', 'Power Bi', 'Excel', 'Python' are the most In-Demand, even though they may not offer the highest salaries. This demonstrates tre importance of core skills in data analysis roles.

@@ -22,3 +22,26 @@ plt.show()
 
 ### Insights
 Python and SQL are a versatile skills, highly demanded across all three roles, so I would recommend to start learning it :)
+
+## 2. How are in-demand skills trending for Data Analysts in Baltics and Poland?
+```python
+
+from matplotlib.ticker import PercentFormatter
+df_plot = df_DA_PLBAL_prc.iloc[:,:5]
+sns.lineplot(data=df_plot, dashes=False, palette='tab10')
+ax = plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+for i in range(5):
+    plt.text(11.2, df_plot.iloc[-1, i], df_plot.columns[i])
+plt.show()
+
+```
+### Results
+
+![Trending Top Skills for Data Analysts in the Baltics and Poland](3_Project\Images\Skills_in_demand_2023.png)
+*Graph visualizing the trending top skills for data analyst in the Baltics and Poland in 2023.*
+
+### Insights
+
+- SQL remains the most consistently demanded skill throughout the year and shows a gradual increase in demand.
+- Excel and Power Bi show relatively stable demand throughout the year, shows upward trend towards the year's end.
